@@ -1,0 +1,29 @@
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $posy;
+  .menu {
+    background-color: $black;
+    width: 100%;
+    a {
+      color: #FFFFFF;
+      &:hover {
+        background-color: transparent;
+        color: $embers;
+      }
+    }
+  }
+  a {
+    color: $embers;
+  }
+  .container {
+    background-color: #FFFFFF;
+    border: 1px solid $black;
+    border-width: 0 1px 0 1px;
+    flex-grow: 1;
+    .alert {
+      margin-top: 15px;
+    }
+  }
+}
