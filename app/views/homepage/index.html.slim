@@ -2,3 +2,8 @@ h1
   = @campaign.name
   | &nbsp;
   small = to_absalom_reckoning @campaign.current_date
+
+.row
+  .col-sm-6
+    h2 PCs
+    = render @campaign.player_characters
