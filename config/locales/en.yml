@@ -3,5 +3,5 @@ en:
     app_name: Chronagus
     app_tagline: the Pathfinder campaign log
   date:
-    day_names: [Moonday, Toilday, Wealday, Oathday, Fireday, Starday, Sunday]
-    month_names: [Abadius, Calistril, Pharast, Gozran, Desnus, Sarenith, Erastus, Arodus, Rova, Lamashan, Neth, Kuthona]
+    day_names: [~, Moonday, Toilday, Wealday, Oathday, Fireday, Starday, Sunday]
+    month_names: [~, Abadius, Calistril, Pharast, Gozran, Desnus, Sarenith, Erastus, Arodus, Rova, Lamashan, Neth, Kuthona]
