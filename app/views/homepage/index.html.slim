@@ -1,2 +1,4 @@
-h1 = @campaign.name
-p = "The date is #{to_absalom_reckoning(@date)}"
+h1
+  = @campaign.name
+  | &nbsp;
+  small = to_absalom_reckoning @campaign.current_date
