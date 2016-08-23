@@ -8,7 +8,10 @@ html
 
   body
     .container-fluid.menu
-      ul.nav.nav-pills.pull-right
+      .navbar-header
+        a.navbar-brand href='#' = t('application.app_name')
+        p.navbar-text = t('application.app_tagline')
+      ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           li = link_to 'Sign out', destroy_user_session_path, :method => :delete
         - else
