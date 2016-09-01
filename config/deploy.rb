@@ -10,6 +10,13 @@ set :repo_url, 'git@github.com:isilher/chronagus.git'
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/home/deploy/chronagus'
 
+set :rbenv_ruby, File.read('.ruby-version').strip
+set :rbenv_custom_path, '~/.rbenv'
+set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_custom_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_custom_path)}/bin/rbenv exec"
+set :rbenv_map_bins, %w(rake gem bundle ruby rails)
+set :rbenv_roles, :all # default value
+
+
 # Default value for :scm is :git
 # set :scm, :git
 
