@@ -3,6 +3,13 @@ h1
   | &nbsp;
   small = to_absalom_reckoning @campaign.current_date
 
+label Game-master:
+p = @campaign.game_master.email
+label Players:
+ul
+  - @campaign.players.each do |player|
+    li = player.email
+
 .row
   .col-sm-6
     h2 PCs
