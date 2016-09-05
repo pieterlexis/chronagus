@@ -1,0 +1,2 @@
+class NonplayerCharacter < Character
+end

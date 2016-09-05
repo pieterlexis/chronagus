@@ -2,4 +2,4 @@
   .panel-heading
     h3.panel-title = player_character.name
   .panel-body
-    p = player_character.public_description
+    = render 'characters/character', character: player_character

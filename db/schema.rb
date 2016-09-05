@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160823200959) do
+ActiveRecord::Schema.define(version: 20160905171329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 20160823200959) do
     t.datetime "updated_at",                          null: false
     t.date     "current_date", default: '2016-08-23'
   end
+
+  create_table "characters", force: :cascade do |t|
+    t.string   "name"
+    t.text     "public_description"
+    t.integer  "campaign_id"
+    t.string   "type"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "characters", ["campaign_id"], name: "index_characters_on_campaign_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
@@ -35,17 +46,6 @@ ActiveRecord::Schema.define(version: 20160823200959) do
 
   add_index "locations", ["campaign_id"], name: "index_locations_on_campaign_id", using: :btree
   add_index "locations", ["location_id"], name: "index_locations_on_location_id", using: :btree
-
-  create_table "player_characters", force: :cascade do |t|
-    t.string   "name"
-    t.text     "public_description"
-    t.text     "private_description"
-    t.integer  "campaign_id"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
-  end
-
-  add_index "player_characters", ["campaign_id"], name: "index_player_characters_on_campaign_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20160823200959) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "characters", "campaigns"
   add_foreign_key "locations", "campaigns"
   add_foreign_key "locations", "locations"
-  add_foreign_key "player_characters", "campaigns"
 end

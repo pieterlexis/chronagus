@@ -1,3 +1,2 @@
-class PlayerCharacter < ActiveRecord::Base
-  belongs_to :campaign
+class PlayerCharacter < Character
 end
