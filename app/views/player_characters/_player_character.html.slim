@@ -1,5 +1,7 @@
-.panel.panel-default
-  .panel-heading
-    h3.panel-title = player_character.name
-  .panel-body
-    = render 'characters/character', character: player_character
+= link_to player_character_path(player_character) do
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title
+        = player_character.name
+    .panel-body
+      = render 'characters/character', character: player_character

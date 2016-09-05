@@ -9,7 +9,7 @@ html
   body
     .container-fluid.menu
       .navbar-header
-        a.navbar-brand href='#' = t('application.app_name')
+        a.navbar-brand href=root_path = t('application.app_name')
         p.navbar-text = t('application.app_tagline')
       ul.nav.navbar-nav.navbar-right
         - if user_signed_in?

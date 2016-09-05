@@ -1,0 +1,16 @@
+= form_for player_character do |f|
+  = f.hidden_field :campaign_id
+
+  .form-group
+    = f.label :name, class: 'label'
+    = f.text_field :name, class: 'form-control'
+
+  .form-group
+    = f.label :public_description, class: 'label'
+    = f.text_area :public_description, class: 'form-control', rows: 20
+
+  .form-group
+    = f.label :player_id, class: 'label'
+    = f.select :player_id, options_for_select(player_options, (player_character.player || current_user).id), {}, { class: 'form-control' }
+
+  = f.submit 'Save', class: 'btn btn-success'
