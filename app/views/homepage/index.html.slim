@@ -12,15 +12,25 @@ ul
 
 .row
   .col-sm-6
-    h2 PCs
+    h2
+      | PCs
+      = link_to 'Add PC', new_campaign_player_character_path(@campaign), class: 'btn btn-info pull-right'
+
     = render @campaign.player_characters
-    = link_to 'Add PC', new_campaign_player_character_path(@campaign), class: 'btn btn-info'
-    h2 NPCs
+
+    h2
+      | NPCs
+      = link_to 'Add NPC', new_campaign_nonplayer_character_path(@campaign), class: 'btn btn-info pull-right'
+
     = render @campaign.nonplayer_characters
-    = link_to 'Add NPC', new_campaign_nonplayer_character_path(@campaign), class: 'btn btn-info'
 
   .col-sm-6
-    h2 Log entries
+    h2
+      | Log entries
+      = link_to 'Add Log entry', new_campaign_log_entry_path(@campaign), class: 'btn btn-info pull-right'
+
     = render @campaign.log_entries.ic_anti_chronological.oc_anti_chronological
+
     h2 Locations
+
     = render @campaign.locations
