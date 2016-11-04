@@ -17,6 +17,7 @@ ul
     = link_to 'Add PC', new_campaign_player_character_path(@campaign), class: 'btn btn-info'
     h2 NPCs
     = render @campaign.nonplayer_characters
+    = link_to 'Add NPC', new_campaign_nonplayer_character_path(@campaign), class: 'btn btn-info'
 
   .col-sm-6
     h2 Log entries

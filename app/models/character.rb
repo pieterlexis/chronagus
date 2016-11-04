@@ -1,4 +1,4 @@
 class Character < ActiveRecord::Base
-  validates :name, :campaign, :player, presence: true
+  validates :name, :campaign, presence: true
   belongs_to :campaign
 end
