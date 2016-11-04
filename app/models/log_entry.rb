@@ -1,6 +1,7 @@
 class LogEntry < ActiveRecord::Base
   belongs_to :campaign
   scope :ic_anti_chronological, -> { order(ic_date: :desc) }
+  scope :oc_anti_chronological, -> { order(oc_date: :desc) }
 
   after_save :update_campaign_date
 
