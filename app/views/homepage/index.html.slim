@@ -31,6 +31,9 @@ ul
 
     = render @campaign.log_entries.ic_anti_chronological.oc_anti_chronological
 
-    h2 Locations
+    h2
+      | Locations
+      = link_to 'Add Location', new_campaign_location_path(@campaign), class: 'btn btn-info pull-right'
+
 
     = render @campaign.locations
