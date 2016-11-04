@@ -19,5 +19,7 @@ ul
     = render @campaign.nonplayer_characters
 
   .col-sm-6
+    h2 Log entries
+    = render @campaign.log_entries.ic_anti_chronological
     h2 Locations
     = render @campaign.locations

@@ -1,0 +1,20 @@
+= form_for log_entry do |f|
+  = f.hidden_field :campaign_id
+
+  .form-group
+    = f.label :title, class: 'label'
+    = f.text_field :title, class: 'form-control'
+
+  .form-group
+    = f.label :text, class: 'label'
+    = f.text_area :text, class: 'form-control', rows: 20
+
+  .form-group
+    = f.label :oc_date, class: 'label'
+    = f.date_field :oc_date, class: 'form-control'
+
+  .form-group
+    = f.label :ic_date, class: 'label'
+    = f.date_select :ic_date, class: 'form-control'
+
+  = f.submit 'Save', class: 'btn btn-success'
