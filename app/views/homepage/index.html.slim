@@ -26,10 +26,11 @@ ul
 
   .col-sm-6
     h2
-      | Log entries
+      = link_to 'Log entries', campaign_log_entries_path(@campaign)
       = link_to 'Add Log entry', new_campaign_log_entry_path(@campaign), class: 'btn btn-info pull-right'
 
     = render @log_entries
+    = link_to 'More Log entries', campaign_log_entries_path(@campaign), class: 'btn btn-block btn-info'
 
     h2
       = link_to 'Locations', campaign_locations_path(@campaign)

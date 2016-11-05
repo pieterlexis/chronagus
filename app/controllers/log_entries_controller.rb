@@ -1,11 +1,15 @@
 class LogEntriesController < ApplicationController
   before_filter :set_log_entry, only: [:show, :edit, :update]
+  before_filter :set_campaign, only: [:index, :new]
+
+  def index
+    @log_entries = @campaign.log_entries
+  end
 
   def show
   end
 
   def new
-    campaign = Campaign.find(params[:campaign_id])
     @log_entry = LogEntry.new(campaign: campaign)
     @log_entry.ic_date = campaign.current_date
   end
@@ -35,6 +39,10 @@ class LogEntriesController < ApplicationController
 
   def set_log_entry
     @log_entry = LogEntry.find(params[:id])
+  end
+
+  def set_campaign
+    @campaign = Campaign.find(params[:campaign_id])
   end
 
   def log_entry_params
