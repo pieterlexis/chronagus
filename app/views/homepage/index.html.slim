@@ -4,11 +4,12 @@ h1
   small = to_absalom_reckoning @campaign.current_date
 
 label Game-master:
-p = @campaign.game_master.email
+| &nbsp;
+= @campaign.game_master.email
+br
 label Players:
-ul
-  - @campaign.players.each do |player|
-    li = player.email
+| &nbsp;
+= @campaign.players.map(&:email).join(', ')
 
 .row
   .col-sm-6
