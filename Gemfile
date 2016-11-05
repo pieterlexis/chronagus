@@ -12,6 +12,7 @@ gem 'sanitize'
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'jbuilder', '~> 2.0'
+gem 'bootsy'
 
 group :development, :test do
   gem 'pry-byebug'
