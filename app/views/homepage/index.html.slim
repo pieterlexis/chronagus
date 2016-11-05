@@ -19,10 +19,11 @@ ul
     = render @player_characters
 
     h2
-      | NPCs
+      = link_to 'NPCs', campaign_nonplayer_characters_path(@campaign)
       = link_to 'Add NPC', new_campaign_nonplayer_character_path(@campaign), class: 'btn btn-info pull-right'
 
     = render @nonplayer_characters
+    = link_to 'More NPCs', campaign_nonplayer_characters_path(@campaign), class: 'btn btn-block btn-info'
 
   .col-sm-6
     h2

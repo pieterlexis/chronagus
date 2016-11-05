@@ -1,11 +1,15 @@
 class NonplayerCharactersController < ApplicationController
   before_filter :set_nonplayer_character, only: [:show, :edit, :update]
+  before_filter :set_campaign, only: [:index ,:new]
+
+  def index
+    @nonplayer_characters = @campaign.nonplayer_characters
+  end
 
   def show
   end
 
   def new
-    campaign = Campaign.find(params[:campaign_id])
     @nonplayer_character = NonplayerCharacter.new(campaign: campaign)
   end
 
@@ -34,6 +38,10 @@ class NonplayerCharactersController < ApplicationController
 
   def set_nonplayer_character
     @nonplayer_character = NonplayerCharacter.find(params[:id])
+  end
+
+  def set_campaign
+    @campaign = Campaign.find(params[:campaign_id])
   end
 
   def nonplayer_character_params
