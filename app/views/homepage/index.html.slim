@@ -16,24 +16,24 @@ ul
       | PCs
       = link_to 'Add PC', new_campaign_player_character_path(@campaign), class: 'btn btn-info pull-right'
 
-    = render @campaign.player_characters
+    = render @player_characters
 
     h2
       | NPCs
       = link_to 'Add NPC', new_campaign_nonplayer_character_path(@campaign), class: 'btn btn-info pull-right'
 
-    = render @campaign.nonplayer_characters
+    = render @nonplayer_characters
 
   .col-sm-6
     h2
       | Log entries
       = link_to 'Add Log entry', new_campaign_log_entry_path(@campaign), class: 'btn btn-info pull-right'
 
-    = render @campaign.log_entries.ic_anti_chronological.oc_anti_chronological
+    = render @log_entries
 
     h2
-      | Locations
+      = link_to 'Locations', campaign_locations_path(@campaign)
       = link_to 'Add Location', new_campaign_location_path(@campaign), class: 'btn btn-info pull-right'
 
-
-    = render @campaign.locations
+    = render @locations
+    = link_to 'More Locations', campaign_locations_path(@campaign), class: 'btn btn-block btn-info'

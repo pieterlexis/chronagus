@@ -1,12 +1,16 @@
 class LocationsController < ApplicationController
   before_filter :set_location, only: [:show, :edit, :update]
+  before_filter :set_campaign, only: [:index, :new]
+
+  def index
+    @locations = @campaign.locations
+  end
 
   def show
   end
 
   def new
-    campaign = Campaign.find(params[:campaign_id])
-    @location = Location.new(campaign: campaign)
+    @location = Location.new(campaign: @campaign)
   end
 
   def create
@@ -34,6 +38,10 @@ class LocationsController < ApplicationController
 
   def set_location
     @location = Location.find(params[:id])
+  end
+
+  def set_campaign
+    @campaign = Campaign.find(params[:campaign_id])
   end
 
   def location_params
