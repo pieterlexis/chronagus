@@ -3,5 +3,5 @@
     .panel-heading
       h3.panel-title = location.name
     .panel-body
-      p = truncate(location.public_description, length: 200)
+      p = truncate(strip_tags(location.public_description), length: 200)
 
