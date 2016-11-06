@@ -14,6 +14,11 @@ gem 'bootstrap-sass'
 gem 'jbuilder', '~> 2.0'
 gem 'bootsy'
 
+# file upload
+gem 'shrine'
+gem 'image_processing'
+gem 'mini_magick'
+
 group :development, :test do
   gem 'pry-byebug'
 end

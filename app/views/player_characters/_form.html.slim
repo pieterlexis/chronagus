@@ -6,6 +6,11 @@
     = f.text_field :name, class: 'form-control'
 
   .form-group
+    = f.label :avatar, class: 'label'
+    = f.hidden_field :avatar, value: @player_character.cached_avatar_data
+    = f.file_field :avatar
+
+  .form-group
     = f.label :public_description, class: 'label'
     = f.bootsy_area :public_description, class: 'form-control', rows: 20
 
