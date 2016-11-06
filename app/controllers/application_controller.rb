@@ -8,13 +8,13 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def sanitize(input_field)
-    Sanitize.fragment(input_field, Sanitize::Config::RELAXED)
+  def sanitize_field(input_field)
+    ActionController::Base.helpers.sanitize input_field
   end
 
   def sanitize_input(input_params, fields)
     fields.each do |field|
-      input_params[field] = sanitize(input_params[field]) if input_params.key? field
+      input_params[field] = sanitize_field(input_params[field]) if input_params.key? field
     end
   end
 
