@@ -1,42 +1,11 @@
-h1
-  = @campaign.name
-  | &nbsp;
-  small = to_absalom_reckoning @campaign.current_date
+h1 = "Welcome #{current_user.email}"
 
-label Game-master:
-| &nbsp;
-= @campaign.game_master.email
-br
-label Players:
-| &nbsp;
-= @campaign.players.map(&:email).join(', ')
+h2
+  | Campaigns you GM:
+  = link_to 'Start new Campaign', new_campaign_path, class: 'btn btn-success pull-right'
 
-.row
-  .col-sm-6
-    h2
-      | PCs
-      = link_to 'Add PC', new_campaign_player_character_path(@campaign), class: 'btn btn-success pull-right'
+= render @gm_campaigns
 
-    = render @player_characters
+h2 Campaigns you play:
 
-    h2
-      = link_to 'NPCs', campaign_nonplayer_characters_path(@campaign)
-      = link_to 'Add NPC', new_campaign_nonplayer_character_path(@campaign), class: 'btn btn-success pull-right'
-
-    = render @nonplayer_characters
-    = link_to 'More NPCs', campaign_nonplayer_characters_path(@campaign), class: 'btn btn-block btn-info'
-
-  .col-sm-6
-    h2
-      = link_to 'Log entries', campaign_log_entries_path(@campaign)
-      = link_to 'Add Log entry', new_campaign_log_entry_path(@campaign), class: 'btn btn-success pull-right'
-
-    = render @log_entries
-    = link_to 'More Log entries', campaign_log_entries_path(@campaign), class: 'btn btn-block btn-info'
-
-    h2
-      = link_to 'Locations', campaign_locations_path(@campaign)
-      = link_to 'Add Location', new_campaign_location_path(@campaign), class: 'btn btn-success pull-right'
-
-    = render @locations
-    = link_to 'More Locations', campaign_locations_path(@campaign), class: 'btn btn-block btn-info'
+= render @pc_campaigns

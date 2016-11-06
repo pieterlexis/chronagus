@@ -1,0 +1,12 @@
+= link_to campaign_path(campaign) do
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title = campaign.name
+    .panel-body
+      label Game-master:
+      | &nbsp;
+      = campaign.game_master.email
+      br
+      label Players:
+      | &nbsp;
+      = campaign.players.map(&:email).join(', ')
