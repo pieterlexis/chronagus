@@ -4,4 +4,4 @@
       h3.panel-title
         = "#{to_absalom_reckoning(log_entry.ic_date)} - #{log_entry.title}"
     .panel-body
-      = truncate(log_entry.text, length: 200)
+      = truncate(strip_tags(log_entry.text), length: 200)

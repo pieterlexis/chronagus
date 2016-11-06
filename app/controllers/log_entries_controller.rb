@@ -46,7 +46,7 @@ class LogEntriesController < ApplicationController
   end
 
   def log_entry_params
-    input_params = params.require(:log_entry).permit(:title, :text, :ic_date, :oc_date, :campaign_id)
+    input_params = params.require(:log_entry).permit(:title, :text, :ic_date, :oc_date, :campaign_id, :bootsy_image_gallery_id)
     sanitize_input(input_params, [:title, :text])
     input_params
   end
