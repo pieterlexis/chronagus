@@ -7,7 +7,7 @@
 
   .form-group
     = f.label :avatar, class: 'label'
-    = f.hidden_field :avatar, value: @player_character.cached_avatar_data
+    = f.hidden_field :avatar, value: player_character.cached_avatar_data
     = f.file_field :avatar
 
   .form-group
@@ -18,4 +18,5 @@
     = f.label :player_id, class: 'label'
     = f.select :player_id, options_for_select(player_options, (player_character.player || current_user).id), {}, { class: 'form-control' }
 
-  = f.submit 'Save', class: 'btn btn-success'
+  = f.submit 'Save', class: 'btn btn-success pull-right'
+  = destroy_link_for player_character

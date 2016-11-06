@@ -14,4 +14,5 @@
     = f.label :public_description, class: 'label'
     = f.bootsy_area :public_description, class: 'form-control', rows: 20
 
-  = f.submit 'Save', class: 'btn btn-success'
+  = f.submit 'Save', class: 'btn btn-success pull-right'
+  = destroy_link_for nonplayer_character

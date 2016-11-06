@@ -1,5 +1,5 @@
 class PlayerCharactersController < ApplicationController
-  before_filter :set_player_character, only: [:show, :edit, :update]
+  before_filter :set_player_character, only: [:show, :edit, :update, :destroy]
 
   def show
   end
@@ -31,6 +31,11 @@ class PlayerCharactersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @player_character.destroy
+    redirect_to root_path
   end
 
   private

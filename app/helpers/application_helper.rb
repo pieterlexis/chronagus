@@ -12,4 +12,9 @@ module ApplicationHelper
   def player_options
     User.all.map { |player| [player.email, player.id] }
   end
+
+  def destroy_link_for(object)
+    return unless object.persisted?
+    link_to 'Delete', object, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+  end
 end

@@ -1,5 +1,5 @@
 class LogEntriesController < ApplicationController
-  before_filter :set_log_entry, only: [:show, :edit, :update]
+  before_filter :set_log_entry, only: [:show, :edit, :update, :destroy]
   before_filter :set_campaign, only: [:index, :new]
 
   def index
@@ -33,6 +33,11 @@ class LogEntriesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @log_entry.destroy
+    redirect_to campaign_log_entries(@log_entry.campaign)
   end
 
   private

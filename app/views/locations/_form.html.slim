@@ -10,5 +10,5 @@
     = f.bootsy_area :public_description, class: 'form-control', rows: 20
 
   = f.submit 'Save', class: 'btn btn-success pull-right'
-  = link_to 'Delete', location, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+  = destroy_link_for location
 

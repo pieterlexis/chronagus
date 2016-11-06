@@ -1,5 +1,5 @@
 class NonplayerCharactersController < ApplicationController
-  before_filter :set_nonplayer_character, only: [:show, :edit, :update]
+  before_filter :set_nonplayer_character, only: [:show, :edit, :update, :destroy]
   before_filter :set_campaign, only: [:index ,:new]
 
   def index
@@ -10,7 +10,7 @@ class NonplayerCharactersController < ApplicationController
   end
 
   def new
-    @nonplayer_character = NonplayerCharacter.new(campaign: campaign)
+    @nonplayer_character = NonplayerCharacter.new(campaign: @campaign)
   end
 
   def create
@@ -32,6 +32,11 @@ class NonplayerCharactersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @nonplayer_character.destroy
+    redirect_to campaign_nonplayer_characters_path(@nonplayer_character.campaign)
   end
 
   private

@@ -17,4 +17,5 @@
     = f.label :ic_date, class: 'label'
     = f.date_select :ic_date, class: 'form-control'
 
-  = f.submit 'Save', class: 'btn btn-success'
+  = f.submit 'Save', class: 'btn btn-success pull-right'
+  = destroy_link_for log_entry
