@@ -5,5 +5,4 @@
         = player_character.name
         small.pull-right = player_character.player&.email
     .panel-body
-      = image_tag player_character.avatar_url(:small), class: 'avatar pull-left'
       = render 'characters/character', character: player_character
