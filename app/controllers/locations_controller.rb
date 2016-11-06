@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_filter :set_location, only: [:show, :edit, :update]
+  before_filter :set_location, only: [:show, :edit, :update, :destroy]
   before_filter :set_campaign, only: [:index, :new]
 
   def index
@@ -32,6 +32,11 @@ class LocationsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @location.destroy
+    redirect_to campaign_locations_path(@location.campaign)
   end
 
   private
