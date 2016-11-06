@@ -40,7 +40,7 @@ class PlayerCharactersController < ApplicationController
   end
 
   def player_character_params
-    input_params = params.require(:player_character).permit(:name, :public_description, :campaign_id, :player_id)
+    input_params = params.require(:player_character).permit(:name, :public_description, :campaign_id, :player_id, :bootsy_image_gallery_id)
     sanitize_input(input_params, [:name, :public_description])
     input_params
   end

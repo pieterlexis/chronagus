@@ -1,4 +1,4 @@
 h1 = @player_character.name
-p = @player_character.public_description
+p == @player_character.public_description
 - if my_character? @player_character
   = link_to 'Edit character', edit_player_character_path(@player_character)
