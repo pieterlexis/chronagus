@@ -3,7 +3,7 @@ class LogEntriesController < ApplicationController
   before_filter :set_campaign, only: [:index, :new]
 
   def index
-    @log_entries = @campaign.log_entries
+    @log_entries = @campaign.log_entries.ic_anti_chronological.oc_anti_chronological
   end
 
   def show
