@@ -1,6 +1,6 @@
 h1
   = image_tag @player_character.avatar_url(:small), class: 'avatar'
   = @player_character.name
-p == @player_character.public_description
+p = sanitize @player_character.public_description
 - if my_character? @player_character
   = link_to 'Edit character', edit_player_character_path(@player_character)

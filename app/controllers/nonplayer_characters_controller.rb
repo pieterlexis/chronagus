@@ -45,8 +45,8 @@ class NonplayerCharactersController < ApplicationController
   end
 
   def nonplayer_character_params
-    input_params = params.require(:nonplayer_character).permit(:name, :public_description, :campaign_id, :bootsy_image_gallery_id, :avatar)
-    sanitize_input(input_params, [:name, :public_description])
-    input_params
+    params
+      .require(:nonplayer_character)
+      .permit(:name, :public_description, :campaign_id, :bootsy_image_gallery_id, :avatar)
   end
 end
