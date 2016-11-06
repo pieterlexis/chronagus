@@ -10,8 +10,8 @@ class LogEntriesController < ApplicationController
   end
 
   def new
-    @log_entry = LogEntry.new(campaign: campaign)
-    @log_entry.ic_date = campaign.current_date
+    @log_entry = LogEntry.new(campaign: @campaign)
+    @log_entry.ic_date = @campaign.current_date
   end
 
   def create
