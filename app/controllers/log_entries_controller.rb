@@ -37,7 +37,7 @@ class LogEntriesController < ApplicationController
 
   def destroy
     @log_entry.destroy
-    redirect_to campaign_log_entries(@log_entry.campaign)
+    redirect_to campaign_log_entries_path(@log_entry.campaign)
   end
 
   private
