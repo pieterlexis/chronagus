@@ -37,7 +37,14 @@ class CampaignsController < ApplicationController
   def update
     authorize @campaign
 
+    initial_gm = @campaign.game_master
+
     if @campaign.update(campaign_params)
+      unless @campaign.game_master == initial_gm
+        @campaign.players << initial_gm
+        @campaign.campaigns_players.find_by(user_id: @campaign.game_master_id).destroy
+      end
+
       redirect_to campaign_path(@campaign)
     else
       render :edit
@@ -47,7 +54,7 @@ class CampaignsController < ApplicationController
   private
 
   def campaign_params
-    params.require(:campaign).permit(:name)
+    params.require(:campaign).permit(:name, :game_master_id)
   end
 
   def set_campaign

@@ -9,10 +9,12 @@ table.table.table-striped
   tr
     th Player
     th Remove from campaign
+    th Transfer GM-ship
   - @campaign.players.each do |player|
     tr
       td = player
       td = destroy_link_for(CampaignsPlayer.find_by(user_id: player.id, campaign_id: @campaign.id))
+      td = link_to 'Make this player the new GM', campaign_path(@campaign, campaign: { game_master_id: player.id }), method: :patch, data: { confirm: 'You will no longer be the GM. Are you sure?' }
 
 hr
 
