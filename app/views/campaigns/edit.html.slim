@@ -1,0 +1,34 @@
+h1 Edit Campaign
+
+= render 'form', campaign: @campaign
+
+hr
+
+h2 Your players
+table.table.table-striped
+  tr
+    th Player
+    th Remove from campaign
+  - @campaign.players.each do |player|
+    tr
+      td = player
+      td = destroy_link_for(CampaignsPlayer.find_by(user_id: player.id, campaign_id: @campaign.id))
+
+hr
+
+h2 Add players
+- if @available_players.empty?
+  p Players must register an account before they can be added to your campaign
+- else
+  = form_for CampaignsPlayer.new(campaign_id: @campaign.id) do |f|
+    .form-group
+      = f.hidden_field :campaign_id
+      = f.label :user, class: 'label'
+      .row
+        .col-sm-10
+          = f.select :user_id, options_from_collection_for_select(@available_players, :id, :email), {}, { class: 'form-control' }
+        .col-sm-2
+          = f.submit 'Add this player', class: 'btn btn-success pull-right col-xs-12'
+
+= destroy_link_for @campaign
+

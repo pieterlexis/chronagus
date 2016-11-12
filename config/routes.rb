@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :nonplayer_characters, except: [:new]
   resources :log_entries, except: [:new]
   resources :locations, except: [:new]
+  resources :campaigns_players
 
   resources :campaigns do
     resources :player_characters

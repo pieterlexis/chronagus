@@ -1,10 +1,6 @@
 h1 Start new Campaign
 
-= form_for @campaign do |f|
-  .form-group
-    = f.label :name, class: 'label'
-    = f.text_field :name, class: 'form-control'
+= render 'form', campaign: @campaign
 
-  = f.submit 'Save', class: 'btn btn-success pull-right'
-  = destroy_link_for @campaign
+= destroy_link_for @campaign
 

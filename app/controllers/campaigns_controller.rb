@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-  before_filter :set_campaign, only: [:show]
+  before_filter :set_campaign, only: [:show, :edit, :update]
 
   def show
     authorize @campaign
@@ -25,6 +25,22 @@ class CampaignsController < ApplicationController
       redirect_to @campaign
     else
       render :new
+    end
+  end
+
+  def edit
+    authorize @campaign
+
+    @available_players = User.where.not(id: @campaign.members.pluck(:id))
+  end
+
+  def update
+    authorize @campaign
+
+    if @campaign.update(campaign_params)
+      redirect_to campaign_path(@campaign)
+    else
+      render :edit
     end
   end
 

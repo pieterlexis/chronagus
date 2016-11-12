@@ -2,6 +2,7 @@ h1
   = @campaign.name
   | &nbsp;
   small = to_absalom_reckoning @campaign.current_date
+  span.pull-right = edit_link_for(@campaign)
 
 label Game-master:
 | &nbsp;

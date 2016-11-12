@@ -17,4 +17,9 @@ class Campaign < ActiveRecord::Base
   def member?(user)
     user.id == game_master_id || campaigns_players.pluck(:id).include?(user.id)
   end
+
+  def members
+    member_ids = players.pluck(:id) << game_master_id
+    User.where(id: member_ids)
+  end
 end

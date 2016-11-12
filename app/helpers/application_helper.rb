@@ -24,6 +24,6 @@ module ApplicationHelper
     return unless object.persisted?
     return unless policy(object).edit?
 
-    link_to 'Edit', polymorphic_path([:edit, object]), class: 'btn btn-info'
+    link_to "Edit #{object.model_name.human.downcase}", polymorphic_path([:edit, object]), class: 'btn btn-info'
   end
 end
