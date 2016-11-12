@@ -131,6 +131,8 @@ GEM
       byebug (~> 8.0)
       pry (~> 0.10)
     puma (3.4.0)
+    pundit (0.3.0)
+      activesupport (>= 3.0.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -224,6 +226,7 @@ DEPENDENCIES
   pg
   pry-byebug
   puma
+  pundit
   rails (= 4.2.6)
   sass-rails (~> 5.0)
   shrine

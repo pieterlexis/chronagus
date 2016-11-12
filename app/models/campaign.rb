@@ -13,4 +13,8 @@ class Campaign < ActiveRecord::Base
     latest_log_date = log_entries.pluck(:ic_date).max
     update(current_date: latest_log_date) if latest_log_date
   end
+
+  def member?(user)
+    user.id == game_master_id || campaigns_players.pluck(:id).include?(user.id)
+  end
 end

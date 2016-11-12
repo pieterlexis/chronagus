@@ -1,5 +1,7 @@
 h1
   = image_tag @nonplayer_character.avatar_url(:small), class: 'avatar'
   = @nonplayer_character.name
+
 p = sanitize @nonplayer_character.public_description
-= link_to 'Edit character', edit_nonplayer_character_path(@nonplayer_character)
+
+= edit_link_for(@nonplayer_character)

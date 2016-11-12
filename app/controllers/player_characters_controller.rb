@@ -2,15 +2,18 @@ class PlayerCharactersController < ApplicationController
   before_filter :set_player_character, only: [:show, :edit, :update, :destroy]
 
   def show
+    authorize @player_character
   end
 
   def new
     campaign = Campaign.find(params[:campaign_id])
     @player_character = PlayerCharacter.new(campaign: campaign)
+    authorize @player_character
   end
 
   def create
     @player_character = PlayerCharacter.new(player_character_params)
+    authorize @player_character
 
     if @player_character.save
       redirect_to player_character_path(@player_character)
@@ -20,11 +23,11 @@ class PlayerCharactersController < ApplicationController
   end
 
   def edit
-    redirect_to player_character_path(@player_character) unless my_character?(@player_character)
+    authorize @player_character
   end
 
   def update
-    redirect_to player_character_path(@player_character) unless my_character?(@player_character)
+    authorize @player_character
 
     if @player_character.update(player_character_params)
       redirect_to player_character_path(@player_character)
@@ -34,6 +37,8 @@ class PlayerCharactersController < ApplicationController
   end
 
   def destroy
+    authorize @player_character
+
     @player_character.destroy
     redirect_to root_path
   end

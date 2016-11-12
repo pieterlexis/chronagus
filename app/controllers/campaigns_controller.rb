@@ -2,6 +2,8 @@ class CampaignsController < ApplicationController
   before_filter :set_campaign, only: [:show]
 
   def show
+    authorize @campaign
+
     @locations = @campaign.locations.limit(3)
     @log_entries = @campaign.log_entries.ic_anti_chronological.oc_anti_chronological.limit(3)
     @nonplayer_characters = @campaign.nonplayer_characters.limit(3)
@@ -10,10 +12,13 @@ class CampaignsController < ApplicationController
 
   def new
     @campaign = Campaign.new
+    authorize @campaign
   end
 
   def create
     @campaign = Campaign.new(campaign_params)
+    authorize @campaign
+
     @campaign.game_master = current_user
 
     if @campaign.save

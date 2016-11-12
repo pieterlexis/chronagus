@@ -3,18 +3,23 @@ class LocationsController < ApplicationController
   before_filter :set_campaign, only: [:index, :new]
 
   def index
+    authorize @campaign, :show?
+
     @locations = @campaign.locations
   end
 
   def show
+    authorize @location
   end
 
   def new
     @location = Location.new(campaign: @campaign)
+    authorize @location
   end
 
   def create
     @location = Location.new(location_params)
+    authorize @location
 
     if @location.save
       redirect_to location_path(@location)
@@ -24,9 +29,12 @@ class LocationsController < ApplicationController
   end
 
   def edit
+    authorize @location
   end
 
   def update
+    authorize @location
+
     if @location.update(location_params)
       redirect_to location_path(@location)
     else
@@ -35,6 +43,8 @@ class LocationsController < ApplicationController
   end
 
   def destroy
+    authorize @location
+
     @location.destroy
     redirect_to campaign_locations_path(@location.campaign)
   end
