@@ -4,4 +4,7 @@ class Character < ActiveRecord::Base
 
   validates :name, :campaign, presence: true
   belongs_to :campaign
+
+  scope :recent, -> { order(updated_at: :desc) }
+  scope :alphabetical, -> { order(name: :asc) }
 end

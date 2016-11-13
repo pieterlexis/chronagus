@@ -5,7 +5,7 @@ class LocationsController < ApplicationController
   def index
     authorize @campaign, :show?
 
-    @locations = @campaign.locations
+    @locations = @campaign.locations.alphabetical
   end
 
   def show

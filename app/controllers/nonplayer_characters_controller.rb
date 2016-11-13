@@ -5,7 +5,7 @@ class NonplayerCharactersController < ApplicationController
   def index
     authorize @campaign, :show?
 
-    @nonplayer_characters = @campaign.nonplayer_characters
+    @nonplayer_characters = @campaign.nonplayer_characters.alphabetical
   end
 
   def show
