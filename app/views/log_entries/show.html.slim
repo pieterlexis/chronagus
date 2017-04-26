@@ -1,3 +1,6 @@
 h1 = "#{to_absalom_reckoning(@log_entry.ic_date)} - #{@log_entry.title}"
+= render 'shared/back_to', url: campaign_path(@log_entry.campaign), name: @log_entry.campaign.name
+= render 'shared/back_to', url: log_entries_path(campaign_id: @log_entry.campaign.id), name: 'log entries'
+
 p = sanitize @log_entry.text
 = link_to 'Edit log entry', edit_log_entry_path(@log_entry)

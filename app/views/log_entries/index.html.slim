@@ -1,3 +1,5 @@
 h1 = "Log entries in #{@campaign.name}"
+= render 'shared/back_to', url: campaign_path(@campaign), name: @campaign.name
+= link_to 'Add Log entry', new_campaign_log_entry_path(@campaign), class: 'btn btn-success pull-right'
 
 = render @log_entries

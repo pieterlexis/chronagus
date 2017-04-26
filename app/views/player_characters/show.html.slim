@@ -2,6 +2,8 @@ h1
   = image_tag @player_character.avatar_url(:small), class: 'avatar'
   = @player_character.name
 
+= render 'shared/back_to', url: campaign_path(@player_character.campaign), name: @player_character.campaign.name
+
 p = sanitize @player_character.public_description
 
 = edit_link_for(@player_character)
