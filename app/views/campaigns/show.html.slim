@@ -32,6 +32,7 @@ label Players:
       = link_to 'Log entries', campaign_log_entries_path(@campaign)
       = link_to 'Add Log entry', new_campaign_log_entry_path(@campaign), class: 'btn btn-success pull-right'
 
+    = link_to 'Previously on', campaign_previously_on_path(@campaign), class: 'btn btn-block btn-info mb-3'
     = render @log_entries
     = link_to 'More Log entries', campaign_log_entries_path(@campaign), class: 'btn btn-block btn-info'
 

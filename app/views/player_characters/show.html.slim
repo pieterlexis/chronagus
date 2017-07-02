@@ -1,5 +1,5 @@
 h1
-  = image_tag @player_character.avatar_url(:small), class: 'avatar'
+  = image_tag @player_character.avatar_url(:small), class: 'avatar mr-2'
   = @player_character.name
 
 = render 'shared/back_to', url: campaign_path(@player_character.campaign), name: @player_character.campaign.name

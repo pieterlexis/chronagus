@@ -1,11 +1,16 @@
 class LogEntriesController < ApplicationController
   before_filter :set_log_entry, only: [:show, :edit, :update, :destroy]
-  before_filter :set_campaign, only: [:index, :new]
+  before_filter :set_campaign, only: [:index, :new, :previously_on]
 
   def index
     authorize @campaign, :show?
 
     @log_entries = @campaign.log_entries.ic_anti_chronological.oc_anti_chronological
+  end
+
+  def previously_on
+    @session = @campaign.log_entries.last.oc_date
+    @log_entries = @campaign.log_entries.where(oc_date: @session).ic_chronological
   end
 
   def show
@@ -17,6 +22,7 @@ class LogEntriesController < ApplicationController
     authorize @log_entry
 
     @log_entry.ic_date = @campaign.current_date
+    @log_entry.oc_date = Time.zone.today
   end
 
   def create

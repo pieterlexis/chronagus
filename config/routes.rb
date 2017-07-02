@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :nonplayer_characters
     resources :log_entries
     resources :locations
+    get 'previously-on', to: 'log_entries#previously_on', as: :previously_on
   end
 
   root to: 'homepage#index'
