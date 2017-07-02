@@ -4,6 +4,6 @@ h1 = "Previously on #{@campaign.name}"
 .well
   - @log_entries.each do |log_entry|
     h3 = to_absalom_reckoning(log_entry.ic_date)
-    = log_entry.text
+    == log_entry.text
 
 
