@@ -78,6 +78,14 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Set sendmail options
-  config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.default_url_options = { host: 'chronagus.plexis.eu'  }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'gmail.com',
+    user_name:            'chronagus.mail@gmail.com',
+    password:             'REPLACE ME',
+    authentication:       :plain,
+    enable_starttls_auto: true
+  }
 end
