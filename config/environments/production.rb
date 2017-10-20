@@ -79,5 +79,5 @@ Rails.application.configure do
 
   # Set sendmail options
   config.action_mailer.delivery_method = :sendmail
-  config.action_mailer.default_url_options = { host: '149.202.106.8'  }
+  config.action_mailer.default_url_options = { host: 'chronagus.plexis.eu'  }
 end
