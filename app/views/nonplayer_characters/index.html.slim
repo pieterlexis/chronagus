@@ -1,4 +1,5 @@
 h1 = "NPCs in #{@campaign.name}"
 = render 'shared/back_to', url: campaign_path(@campaign), name: @campaign.name
+= link_to 'Add NPC', new_campaign_nonplayer_character_path(@campaign), class: 'btn btn-success pull-right'
 
 = render @nonplayer_characters
