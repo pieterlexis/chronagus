@@ -5,3 +5,13 @@ en:
   date:
     day_names: [Sunday, Moonday, Toilday, Wealday, Oathday, Fireday, Starday]
     month_names: [~, Abadius, Calistril, Pharast, Gozran, Desnus, Sarenith, Erastus, Arodus, Rova, Lamashan, Neth, Kuthona]
+
+  general:
+    welcome: Welcome %{user}!
+    sign_in: Sign in
+    sign_out: Sign out
+    sign_up: Sign up
+    close: close
+
+  main_menu:
+    toggle: Toggle main navigation

@@ -1,7 +1,9 @@
 = link_to log_entry_path(log_entry) do
-  .panel.panel-default
-    .panel-heading
-      h3.panel-title
-        = "#{to_absalom_reckoning(log_entry.ic_date)} - #{log_entry.title}"
-    .panel-body
-      = truncate(strip_tags(log_entry.text), length: 200)
+  .card.mb-3
+    .card-body
+      h3.card-title
+        = log_entry.title
+      h6.card-subtitle.muted.mb-2
+        = to_absalom_reckoning(log_entry.ic_date)
+      p.card-text
+        = truncate(strip_tags(log_entry.text), length: 200)

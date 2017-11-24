@@ -1,33 +1,21 @@
-h1
-  = @campaign.name
-  | &nbsp;
-  small = to_absalom_reckoning @campaign.current_date
-  span.pull-right = edit_link_for(@campaign)
+/ h1
+/   = @campaign.name
+/   | &nbsp;
+/   small = to_absalom_reckoning @campaign.current_date
+/   span.pull-right = edit_link_for(@campaign)
 
-label Game-master:
-| &nbsp;
-= @campaign.game_master.email
-br
-label Players:
-| &nbsp;
-= @campaign.players.map(&:email).join(', ')
+/ label Game-master:
+/ | &nbsp;
+/ = @campaign.game_master.email
+/ br
+/ label Players:
+/ | &nbsp;
+/ = @campaign.players.map(&:email).join(', ')
 
 .row
-  .col-sm-6
-    h2
-      | PCs
-      = link_to 'Add PC', new_campaign_player_character_path(@campaign), class: 'btn btn-success pull-right'
+  .col-md-3
 
-    = render @player_characters
-
-    h2
-      = link_to 'NPCs', campaign_nonplayer_characters_path(@campaign)
-      = link_to 'Add NPC', new_campaign_nonplayer_character_path(@campaign), class: 'btn btn-success pull-right'
-
-    = render @nonplayer_characters
-    = link_to 'More NPCs', campaign_nonplayer_characters_path(@campaign), class: 'btn btn-block btn-info'
-
-  .col-sm-6
+  .col-md-9
     h2
       = link_to 'Log entries', campaign_log_entries_path(@campaign)
       = link_to 'Add Log entry', new_campaign_log_entry_path(@campaign), class: 'btn btn-success pull-right'
@@ -36,9 +24,27 @@ label Players:
     = render @log_entries
     = link_to 'More Log entries', campaign_log_entries_path(@campaign), class: 'btn btn-block btn-info'
 
-    h2
-      = link_to 'Locations', campaign_locations_path(@campaign)
-      = link_to 'Add Location', new_campaign_location_path(@campaign), class: 'btn btn-success pull-right'
+/ .row
+/   .col-sm-6
+/     h2
+/       | PCs
+/       = link_to 'Add PC', new_campaign_player_character_path(@campaign), class: 'btn btn-success pull-right'
 
-    = render @locations
-    = link_to 'More Locations', campaign_locations_path(@campaign), class: 'btn btn-block btn-info'
+/     = render @player_characters
+
+/     h2
+/       = link_to 'NPCs', campaign_nonplayer_characters_path(@campaign)
+/       = link_to 'Add NPC', new_campaign_nonplayer_character_path(@campaign), class: 'btn btn-success pull-right'
+
+/     = render @nonplayer_characters
+/     = link_to 'More NPCs', campaign_nonplayer_characters_path(@campaign), class: 'btn btn-block btn-info'
+
+/   .col-sm-6
+
+
+/     h2
+/       = link_to 'Locations', campaign_locations_path(@campaign)
+/       = link_to 'Add Location', new_campaign_location_path(@campaign), class: 'btn btn-success pull-right'
+
+/     = render @locations
+/     = link_to 'More Locations', campaign_locations_path(@campaign), class: 'btn btn-block btn-info'
