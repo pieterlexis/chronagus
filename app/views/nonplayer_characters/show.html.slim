@@ -1,10 +1,15 @@
-h1
-  = image_tag @nonplayer_character.avatar_url(:small), class: 'avatar mr-2'
-  = @nonplayer_character.name
+.row
+  .col-md-3
+    .d-flex.flex-column.align-items-center
 
-= render 'shared/back_to', url: campaign_path(@nonplayer_character.campaign), name: @nonplayer_character.campaign.name
-= render 'shared/back_to', url: nonplayer_characters_path(campaign_id: @nonplayer_character.campaign.id), name: 'NPCs'
+      = image_tag @nonplayer_character.avatar_url(:small), class: 'avatar mb-3'
+      h2.text-center.mb-3 = @nonplayer_character.name
 
-p = sanitize @nonplayer_character.public_description
 
-= edit_link_for(@nonplayer_character)
+      = edit_link_for(@nonplayer_character, nil, 'w-100 mb-2')
+      = render 'shared/back_to', url: campaign_path(@nonplayer_character.campaign), name: @nonplayer_character.campaign.name
+      = render 'shared/back_to', url: nonplayer_characters_path(campaign_id: @nonplayer_character.campaign.id), name: 'NPCs'
+
+  .col-md-9
+    = sanitize @nonplayer_character.public_description
+
