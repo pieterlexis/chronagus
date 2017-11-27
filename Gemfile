@@ -12,6 +12,7 @@ gem 'pundit'
 gem 'jquery-rails'
 gem 'bootstrap'
 gem 'jbuilder', '~> 2.0'
+gem 'summernote-rails'
 
 # file upload
 gem 'shrine'

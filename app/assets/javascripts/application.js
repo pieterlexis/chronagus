@@ -14,3 +14,5 @@
 //= require jquery_ujs
 //= require popper
 //= require bootstrap-sprockets
+//= require summernote
+//= require wysiwyg
