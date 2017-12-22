@@ -4,6 +4,7 @@ h1 = "Previously on #{@campaign.name}"
 - @log_entries.each do |log_entry|
   .row.mb-3
     .col-md-3
+      hr
       strong.float-right.mb-2 = to_absalom_reckoning(log_entry.ic_date)
     .col-md-9
       hr

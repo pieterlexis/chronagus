@@ -1,6 +1,6 @@
 .row
   .col-md-3
-    h1 = @log_entry.title
+    h1.text-center = @log_entry.title
     .mb-2
       strong = to_absalom_reckoning(@log_entry.ic_date)
     = link_to 'Edit log entry', edit_log_entry_path(@log_entry), class: 'btn btn-info w-100 mb-2'
