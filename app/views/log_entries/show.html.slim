@@ -1,6 +1,10 @@
-h1 = "#{to_absalom_reckoning(@log_entry.ic_date)} - #{@log_entry.title}"
-= render 'shared/back_to', url: campaign_path(@log_entry.campaign), name: @log_entry.campaign.name
-= render 'shared/back_to', url: log_entries_path(campaign_id: @log_entry.campaign.id), name: 'log entries'
-
-p = sanitize @log_entry.text
-= link_to 'Edit log entry', edit_log_entry_path(@log_entry)
+.row
+  .col-md-3
+    h1 = @log_entry.title
+    .mb-2
+      strong = to_absalom_reckoning(@log_entry.ic_date)
+    = link_to 'Edit log entry', edit_log_entry_path(@log_entry), class: 'btn btn-info w-100 mb-2'
+    = render 'shared/back_to', url: campaign_path(@log_entry.campaign), name: @log_entry.campaign.name
+    = render 'shared/back_to', url: log_entries_path(campaign_id: @log_entry.campaign.id), name: 'log entries'
+  .col-md-9
+    p = sanitize @log_entry.text

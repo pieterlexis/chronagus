@@ -7,7 +7,7 @@
 
   .form-group
     = f.label :public_description, class: 'label'
-    = f.text_area :public_description, class: 'form-control', rows: 20
+    = f.text_area :public_description, class: 'form-control', rows: 20, data: { provider: 'summernote' }
 
   = f.submit 'Save', class: 'btn btn-success pull-right'
   = destroy_link_for location
