@@ -1,12 +1,16 @@
 = link_to campaign_path(campaign) do
-  .panel.panel-default
-    .panel-heading
-      h3.panel-title = campaign.name
-    .panel-body
-      label Game-master:
-      | &nbsp;
-      = campaign.game_master.email
-      br
-      label Players:
-      | &nbsp;
-      = campaign.players.map(&:email).join(', ')
+  .card.mb-3
+    .card-body
+      h3.card-title = campaign.name
+
+      p.card-text
+        ul
+          - player_list = campaign.players.map(&:email).each do |player|
+            li = player
+          - if player_list.empty?
+            li = t('campaing.no_players')
+
+    .card-footer
+      small.text-muted
+        => t('campaign.game_master')
+        = campaign.game_master.email

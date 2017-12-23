@@ -62,6 +62,6 @@ class LocationsController < ApplicationController
   def location_params
     params
       .require(:location)
-      .permit(:name, :public_description, :campaign_id, :bootsy_image_gallery_id)
+      .permit(:name, :public_description, :campaign_id)
   end
 end

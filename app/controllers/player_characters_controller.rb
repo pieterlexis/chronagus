@@ -52,6 +52,6 @@ class PlayerCharactersController < ApplicationController
   def player_character_params
     params
       .require(:player_character)
-      .permit(:name, :public_description, :campaign_id, :player_id, :bootsy_image_gallery_id, :avatar)
+      .permit(:name, :public_description, :campaign_id, :player_id, :avatar)
   end
 end

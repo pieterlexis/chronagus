@@ -63,6 +63,6 @@ class NonplayerCharactersController < ApplicationController
   def nonplayer_character_params
     params
       .require(:nonplayer_character)
-      .permit(:name, :public_description, :campaign_id, :bootsy_image_gallery_id, :avatar)
+      .permit(:name, :public_description, :campaign_id, :avatar)
   end
 end

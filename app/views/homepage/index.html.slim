@@ -1,11 +1,11 @@
-h1 = "Welcome #{current_user.email}"
-
-h2
-  | Campaigns you GM:
-  = link_to 'Start new Campaign', new_campaign_path, class: 'btn btn-success pull-right'
+.row.my-3
+  .col-9
+    h2 = t('index.your_campaigns')
+  .col-3
+    = link_to '+', new_campaign_path, class: 'btn btn-success float-right'
 
 = render @gm_campaigns
 
-h2 Campaigns you play:
-
 = render @pc_campaigns
+
+

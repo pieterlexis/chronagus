@@ -1,6 +1,4 @@
 class LogEntry < ActiveRecord::Base
-  include Bootsy::Container
-
   belongs_to :campaign
   scope :ic_chronological, -> { order(ic_date: :asc) }
   scope :ic_anti_chronological, -> { order(ic_date: :desc) }

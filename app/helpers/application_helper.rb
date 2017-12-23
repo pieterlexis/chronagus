@@ -20,10 +20,14 @@ module ApplicationHelper
     link_to 'Delete', object, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
   end
 
-  def edit_link_for(object)
+  def edit_link_for(object, text = nil, classes = nil)
     return unless object.persisted?
     return unless policy(object).edit?
 
-    link_to "Edit #{object.model_name.human.downcase}", polymorphic_path([:edit, object]), class: 'btn btn-info'
+    button_text = text || "Edit #{object.model_name.human.downcase}"
+    button_classes = ['btn btn-info', classes].join(' ')
+
+
+    link_to button_text, polymorphic_path([:edit, object]), class: button_classes
   end
 end

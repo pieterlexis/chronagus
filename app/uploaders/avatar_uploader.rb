@@ -5,6 +5,11 @@ class AvatarUploader < Shrine
   plugin :processing
   plugin :versions
   plugin :remove_attachment
+  plugin :default_url
+
+  Attacher.default_url do |options|
+    ActionController::Base.helpers.image_path('default_avatar_small.png')
+  end
 
   process(:store) do |io, context|
     original = io.download
@@ -13,4 +18,5 @@ class AvatarUploader < Shrine
 
     { original: original, large: size_300, small: size_84 }
   end
+
 end

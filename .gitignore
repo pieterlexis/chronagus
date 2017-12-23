@@ -17,3 +17,4 @@ config/env_config.yml
 .DS_Store
 coverage
 public/uploads
+public/assets

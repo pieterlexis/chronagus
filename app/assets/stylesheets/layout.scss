@@ -1,31 +1,17 @@
 body {
   color: $ink;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: $posy;
-  .menu {
-    background-color: $black;
-    width: 100%;
-    a {
-      color: #FFFFFF;
-      &:hover {
-        background-color: transparent;
-        color: $embers;
-      }
-    }
-    .navbar-text {
-      color: $posy;
-    }
+  background-color: $canvas;
+}
+
+a {
+  color: $embers;
+
+  .card {
+    color: $ink;
   }
-  a {
-    color: $embers;
-  }
-  .container {
-    background-color: #FFFFFF;
-    border: 1px solid $black;
-    border-width: 0 1px 0 1px;
-    flex-grow: 1;
+
+  &:hover {
+    text-decoration: none;
   }
 }
 
@@ -33,11 +19,11 @@ body {
   color: $ink;
 }
 
-.main-content img {
-  max-width: 100%;
-}
-
 .avatar {
   border-radius: 50%;
-  display: inline-block;
+  box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+img {
+  max-width: 100%;
 }

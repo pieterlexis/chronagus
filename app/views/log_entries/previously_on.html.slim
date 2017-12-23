@@ -1,7 +1,11 @@
 h1 = "Previously on #{@campaign.name}"
 = render 'shared/back_to', url: campaign_path(@campaign), name: @campaign.name
 
-.well
-  - @log_entries.each do |log_entry|
-    h3 = to_absalom_reckoning(log_entry.ic_date)
-    == log_entry.text
+- @log_entries.each do |log_entry|
+  .row.mb-3
+    .col-md-3
+      hr
+      strong.float-right.mb-2 = to_absalom_reckoning(log_entry.ic_date)
+    .col-md-9
+      hr
+      == log_entry.text

@@ -1,34 +1,41 @@
 doctype html
-html
+html lang='en'
   head
     meta charset='utf-8'
-    meta http-equiv='X-UA-Compatible' content='IE=edge'
-    meta name='viewport' content='width=device-width, initial-scale=1'
+    meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'
 
-    title Chronagus
+    title = t('application.app_name')
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
 
   body
-    .container-fluid.menu
-      .navbar-header
-        a.navbar-brand href=root_path = t('application.app_name')
-        p.navbar-text = t('application.app_tagline')
-      ul.nav.navbar-nav.navbar-right
-        - if user_signed_in?
-          p.navbar-text = "Hello #{current_user.email}!"
-          li = link_to 'Sign out', destroy_user_session_path, :method => :delete
-        - else
-          li = link_to 'Sign in', new_user_session_path
-          li = link_to 'Sign up', new_user_registration_path
+    nav.navbar.navbar-expand-md.navbar-dark.bg-dark.mb-3
+      a.navbar-brand href=root_path = t('application.app_name')
+      button.navbar-toggler type='button' data-toggle='collapse' data-target='#mainNav' aria-controls='mainNav' aria-expanded='false' aria-label=t('main_menu.toggle')
+        span.navbar-toggler-icon
 
-    .container.main-content.py-5.px-4
-      - if notice
-        .alert.alert-info
-          p = notice
-      - if alert
-        .alert.alert-warning
-          p = alert
+      #mainNav.collapse.navbar-collapse
+        ul.navbar-nav.ml-auto
+          - if user_signed_in?
+            li.navbar-text.mr-2 = t('general.welcome', user: current_user.email)
+            li.nav-item
+              = link_to t('general.sign_out'), destroy_user_session_path, :method => :delete, class: 'nav-link btn btn-outline-danger'
+          - else
+            li.nav-item.mr-2 = link_to t('general.sign_in'), new_user_session_path, class: 'nav-link btn btn-outline-success'
+            li.nav-item = link_to t('general.sign_up'), new_user_registration_path, class: 'nav-link btn btn-outline-info'
+
+    - if notice
+      .alert.alert-info.alert-dismissable.fade.show role='alert'
+        = notice
+        button.close type='button' data-dismiss='alert' aria-label=t('general.close')
+          span aria-hidden="true" &times;
+    - if alert
+      .alert.alert-warning.alert-dismissable.fade.show role='alert'
+        = alert
+        button.close type='button' data-dismiss='alert' aria-label=t('general.close')
+          span aria-hidden="true" &times;
+
+    .container-fluid
 
       = yield

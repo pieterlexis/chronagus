@@ -1,2 +1,6 @@
-= image_tag character.avatar_url(:small), class: 'avatar pull-left mr-2'
-p = truncate(strip_tags(character.public_description), length: 200)
+= link_to polymorphic_path(character) do
+  .card.mb-3
+    .card-body
+      .d-flex.align-items-center
+        = image_tag character.avatar_url(:small), width: 60, height: 60, class: 'avatar float-left mr-3'
+        h4.mb-0 = character.name

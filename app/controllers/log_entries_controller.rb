@@ -70,6 +70,6 @@ class LogEntriesController < ApplicationController
   def log_entry_params
     params
       .require(:log_entry)
-      .permit(:title, :text, :ic_date, :oc_date, :campaign_id, :bootsy_image_gallery_id)
+      .permit(:title, :text, :ic_date, :oc_date, :campaign_id)
   end
 end
