@@ -1,4 +1,4 @@
-class Campaign < ActiveRecord::Base
+class Campaign < ApplicationRecord
   has_many :player_characters
   has_many :nonplayer_characters
   has_many :locations

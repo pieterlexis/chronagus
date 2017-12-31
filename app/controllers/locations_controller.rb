@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
-  before_filter :set_location, only: [:show, :edit, :update, :destroy]
-  before_filter :set_campaign, only: [:index, :new]
+  before_action :set_location, only: [:show, :edit, :update, :destroy]
+  before_action :set_campaign, only: [:index, :new]
 
   def index
     authorize @campaign, :show?

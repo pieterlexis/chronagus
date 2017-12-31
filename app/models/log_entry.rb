@@ -1,4 +1,4 @@
-class LogEntry < ActiveRecord::Base
+class LogEntry < ApplicationRecord
   belongs_to :campaign
   scope :ic_chronological, -> { order(ic_date: :asc) }
   scope :ic_anti_chronological, -> { order(ic_date: :desc) }

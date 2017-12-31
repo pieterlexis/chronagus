@@ -1,6 +1,6 @@
 class NonplayerCharactersController < ApplicationController
-  before_filter :set_nonplayer_character, only: [:show, :edit, :update, :destroy]
-  before_filter :set_campaign, only: [:index ,:new]
+  before_action :set_nonplayer_character, only: [:show, :edit, :update, :destroy]
+  before_action :set_campaign, only: [:index ,:new]
 
   def index
     authorize @campaign, :show?

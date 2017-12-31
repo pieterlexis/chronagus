@@ -1,6 +1,6 @@
 class LogEntriesController < ApplicationController
-  before_filter :set_log_entry, only: [:show, :edit, :update, :destroy]
-  before_filter :set_campaign, only: [:index, :new, :previously_on]
+  before_action :set_log_entry, only: [:show, :edit, :update, :destroy]
+  before_action :set_campaign, only: [:index, :new, :previously_on]
 
   def index
     authorize @campaign, :show?
