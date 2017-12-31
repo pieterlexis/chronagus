@@ -1,4 +1,4 @@
-class Character < ActiveRecord::Base
+class Character < ApplicationRecord
   include AvatarUploader[:avatar]
 
   validates :name, :campaign, presence: true
