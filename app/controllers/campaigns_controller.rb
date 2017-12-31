@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-  before_filter :set_campaign, only: [:show, :edit, :update]
+  before_action :set_campaign, only: [:show, :edit, :update]
 
   def show
     authorize @campaign

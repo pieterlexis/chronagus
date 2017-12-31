@@ -1,5 +1,5 @@
 class PlayerCharactersController < ApplicationController
-  before_filter :set_player_character, only: [:show, :edit, :update, :destroy]
+  before_action :set_player_character, only: [:show, :edit, :update, :destroy]
 
   def show
     authorize @player_character
