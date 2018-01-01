@@ -16,7 +16,7 @@ module Chronagus
     # -- all .rb files in that directory are automatically loaded.
 
     config.action_view.sanitized_allowed_tags = [
-      'p', 'h2', 'h3', 'h4', 'span',
+      'p', 'h2', 'h3', 'h4', 'span', 'br', 'div',
       'i', 'em', 'strong', 'b', 'strike', 'del', 's', 'u',
       'ul', 'ol',
       'img',
