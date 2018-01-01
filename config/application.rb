@@ -15,6 +15,7 @@ module Chronagus
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
-    config.action_view.sanitized_allowed_attributes = ['style']
+    config.action_view.sanitized_allowed_tags = ['img']
+    config.action_view.sanitized_allowed_attributes = ['style', 'src']
   end
 end
