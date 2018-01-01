@@ -21,6 +21,7 @@ gem 'mini_magick'
 
 group :development, :test do
   gem 'pry-byebug'
+  gem 'dotenv-rails'
 end
 
 group :development do
