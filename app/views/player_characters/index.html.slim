@@ -7,4 +7,7 @@
     .float-right
       = render 'shared/back_to', url: campaign_path(@campaign), name: @campaign.name
 
-= render @player_characters
+.row.mb-3
+  - @player_characters.each do |character|
+    .col-lg-3.col-md-4
+      = render character
