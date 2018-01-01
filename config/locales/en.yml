@@ -15,3 +15,8 @@ en:
 
   main_menu:
     toggle: Toggle main navigation
+
+  activerecord:
+    attributes:
+      character:
+        active: Show on campaign page

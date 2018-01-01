@@ -7,7 +7,7 @@ class CampaignsController < ApplicationController
     @locations = @campaign.locations.recent.limit(3)
     @log_entries = @campaign.log_entries.ic_anti_chronological.oc_anti_chronological.limit(5)
     @nonplayer_characters = @campaign.nonplayer_characters.recent.limit(3)
-    @player_characters = @campaign.player_characters
+    @player_characters = @campaign.player_characters.active
   end
 
   def new

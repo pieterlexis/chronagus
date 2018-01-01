@@ -6,4 +6,5 @@ class Character < ApplicationRecord
 
   scope :recent, -> { order(updated_at: :desc) }
   scope :alphabetical, -> { order(name: :asc) }
+  scope :active, -> { where(active: true) }
 end

@@ -1,13 +1,19 @@
 class PlayerCharactersController < ApplicationController
   before_action :set_player_character, only: [:show, :edit, :update, :destroy]
+  before_action :set_campaign, only: [:index ,:new]
+
+  def index
+    authorize @campaign, :show?
+
+    @player_characters = @campaign.player_characters.alphabetical
+  end
 
   def show
     authorize @player_character
   end
 
   def new
-    campaign = Campaign.find(params[:campaign_id])
-    @player_character = PlayerCharacter.new(campaign: campaign)
+    @player_character = PlayerCharacter.new(campaign: @campaign)
     authorize @player_character
   end
 
@@ -49,9 +55,13 @@ class PlayerCharactersController < ApplicationController
     @player_character = PlayerCharacter.find(params[:id])
   end
 
+  def set_campaign
+    @campaign = Campaign.find(params[:campaign_id])
+  end
+
   def player_character_params
     params
       .require(:player_character)
-      .permit(:name, :public_description, :campaign_id, :player_id, :avatar)
+      .permit(:name, :public_description, :campaign_id, :player_id, :avatar, :active)
   end
 end

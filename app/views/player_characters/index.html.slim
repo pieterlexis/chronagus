@@ -1,10 +1,10 @@
 .row.mb-3
   .col-md-8
-    h1 = 'NPCs'
+    h1 = 'Player Characters'
   .col-md-4
     .float-right.ml-2
-      = link_to '+', new_campaign_nonplayer_character_path(@campaign), class: 'btn btn-success'
+      = link_to '+', new_campaign_player_character_path(@campaign), class: 'btn btn-success'
     .float-right
       = render 'shared/back_to', url: campaign_path(@campaign), name: @campaign.name
 
-= render @nonplayer_characters
+= render @player_characters

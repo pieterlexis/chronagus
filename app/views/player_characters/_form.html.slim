@@ -6,6 +6,12 @@
     = f.text_field :name, class: 'form-control'
 
   .form-group
+    .form-check
+      = f.label :active, class: 'label' do
+        = f.check_box :active, class: 'form-check-input'
+        = Character.human_attribute_name(:active)
+
+  .form-group
     = f.label :avatar, class: 'label'
     = f.hidden_field :avatar, value: player_character.cached_avatar_data
     = f.file_field :avatar

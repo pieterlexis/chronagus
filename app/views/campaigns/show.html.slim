@@ -6,6 +6,7 @@
 
     = render @player_characters
     = link_to 'Add PC', new_campaign_player_character_path(@campaign), class: 'btn btn-success w-100 mb-2'
+    = link_to 'All PCs', campaign_player_characters_path(@campaign), class: 'btn btn-info w-100 mb-2'
     = link_to 'NPCs', campaign_nonplayer_characters_path(@campaign), class: 'btn btn-info w-100 mb-2'
     = link_to 'Locations', campaign_locations_path(@campaign), class: 'btn btn-info w-100 mb-2'
 
