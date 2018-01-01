@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :campaigns_players
 
   resources :campaigns do
-    resources :player_characters
+    resources :player_characters do
+      put 'toggle_active', to: 'player_characters#toggle_active'
+    end
     resources :nonplayer_characters
     resources :log_entries
     resources :locations

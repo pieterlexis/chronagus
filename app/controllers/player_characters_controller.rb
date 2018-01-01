@@ -1,6 +1,6 @@
 class PlayerCharactersController < ApplicationController
   before_action :set_player_character, only: [:show, :edit, :update, :destroy]
-  before_action :set_campaign, only: [:index ,:new]
+  before_action :set_campaign, only: [:index ,:new, :toggle_active]
 
   def index
     authorize @campaign, :show?
@@ -47,6 +47,13 @@ class PlayerCharactersController < ApplicationController
 
     @player_character.destroy
     redirect_to root_path
+  end
+
+  def toggle_active
+    authorize @campaign, :show?
+    player_character = PlayerCharacter.find(params[:player_character_id])
+    player_character.update(active: !player_character.active)
+    redirect_to player_character_path(player_character)
   end
 
   private
