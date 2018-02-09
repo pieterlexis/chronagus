@@ -22,7 +22,7 @@ h2 Add players
 - if @available_players.empty?
   p Players must register an account before they can be added to your campaign
 - else
-  = form_for CampaignsPlayer.new(campaign_id: @campaign.id) do |f|
+  = form_for [@campaign, CampaignsPlayer.new(campaign_id: @campaign.id)] do |f|
     .form-group
       = f.hidden_field :campaign_id
       = f.label :user, class: 'label'

@@ -1,6 +1,7 @@
 en:
   application:
     app_name: Chronagus
+    short_name: Ch
     app_tagline: the Pathfinder campaign log
   date:
     day_names: [Sunday, Moonday, Toilday, Wealday, Oathday, Fireday, Starday]

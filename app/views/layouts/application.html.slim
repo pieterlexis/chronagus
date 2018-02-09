@@ -11,7 +11,12 @@ html lang='en'
 
   body
     nav.navbar.navbar-expand-md.navbar-dark.bg-dark.mb-3
-      a.navbar-brand href=root_path = t('application.app_name')
+      a.navbar-brand href=root_path
+        - if @campaign && @campaign.persisted?
+          = t('application.short_name')
+          = link_to @campaign.name, campaign_path(@campaign), class: 'nav-link btn'
+        - else
+          = t('application.app_name')
       button.navbar-toggler type='button' data-toggle='collapse' data-target='#mainNav' aria-controls='mainNav' aria-expanded='false' aria-label=t('main_menu.toggle')
         span.navbar-toggler-icon
 

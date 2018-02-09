@@ -1,6 +1,5 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-  before_action :set_campaign, only: [:index, :new]
 
   def index
     authorize @campaign, :show?
@@ -22,7 +21,7 @@ class LocationsController < ApplicationController
     authorize @location
 
     if @location.save
-      redirect_to location_path(@location)
+      redirect_to campaign_location_path(@campaign, @location)
     else
       render :new
     end
@@ -36,7 +35,7 @@ class LocationsController < ApplicationController
     authorize @location
 
     if @location.update(location_params)
-      redirect_to location_path(@location)
+      redirect_to campaign_location_path(@campaign, @location)
     else
       render :edit
     end
@@ -46,17 +45,13 @@ class LocationsController < ApplicationController
     authorize @location
 
     @location.destroy
-    redirect_to campaign_locations_path(@location.campaign)
+    redirect_to campaign_locations_path(@campaign)
   end
 
   private
 
   def set_location
     @location = Location.find(params[:id])
-  end
-
-  def set_campaign
-    @campaign = Campaign.find(params[:campaign_id])
   end
 
   def location_params

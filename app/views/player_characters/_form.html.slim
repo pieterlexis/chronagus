@@ -1,4 +1,4 @@
-= form_for player_character do |f|
+= form_for [@campaign, player_character] do |f|
   = f.hidden_field :campaign_id
 
   .form-group
@@ -22,7 +22,7 @@
 
   .form-group
     = f.label :player_id, class: 'label'
-    = f.select :player_id, options_from_collection_for_select(player_character.campaign.players, :id, :email, (player_character.player || current_user).id), {}, { class: 'form-control' }
+    = f.select :player_id, options_from_collection_for_select(@campaign.players, :id, :email, (player_character.player || current_user).id), {}, { class: 'form-control' }
 
   = f.submit 'Save', class: 'btn btn-success pull-right'
   = destroy_link_for player_character

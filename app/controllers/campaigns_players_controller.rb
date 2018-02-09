@@ -5,7 +5,7 @@ class CampaignsPlayersController < ApplicationController
 
     campaigns_player.save
 
-    redirect_to edit_campaign_path(campaigns_player.campaign)
+    redirect_to edit_campaign_path(@campaign)
   end
 
   def destroy
@@ -14,7 +14,7 @@ class CampaignsPlayersController < ApplicationController
 
     campaigns_player.destroy
 
-    redirect_to edit_campaign_path(campaigns_player.campaign)
+    redirect_to edit_campaign_path(@campaign)
   end
 
   private

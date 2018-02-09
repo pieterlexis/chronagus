@@ -1,9 +1,8 @@
 .row
   .col-md-3
     h1.text-center = @location.name
-    = link_to 'Edit location', edit_location_path(@location), class: 'btn btn-info w-100 mb-2'
-    = render 'shared/back_to', url: campaign_path(@location.campaign), name: @location.campaign.name
-    = render 'shared/back_to', url: locations_path(campaign_id: @location.campaign.id), name: 'locations'
+    = link_to 'Edit location', edit_campaign_location_path(@campaign, @location), class: 'btn btn-info w-100 mb-2'
+    = render 'shared/back_to', url: campaign_locations_path(@campaign), name: 'locations'
   .col-md-9
 
     p = sanitize @location.public_description

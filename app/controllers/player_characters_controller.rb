@@ -1,6 +1,5 @@
 class PlayerCharactersController < ApplicationController
   before_action :set_player_character, only: [:show, :edit, :update, :destroy]
-  before_action :set_campaign, only: [:index ,:new, :toggle_active]
 
   def index
     authorize @campaign, :show?
@@ -22,7 +21,7 @@ class PlayerCharactersController < ApplicationController
     authorize @player_character
 
     if @player_character.save
-      redirect_to player_character_path(@player_character)
+      redirect_to campaign_player_character_path(@campaign, @player_character)
     else
       render :new
     end
@@ -36,7 +35,7 @@ class PlayerCharactersController < ApplicationController
     authorize @player_character
 
     if @player_character.update(player_character_params)
-      redirect_to player_character_path(@player_character)
+      redirect_to campaign_player_character_path(@campaign, @player_character)
     else
       render :edit
     end
@@ -53,17 +52,13 @@ class PlayerCharactersController < ApplicationController
     authorize @campaign, :show?
     player_character = PlayerCharacter.find(params[:player_character_id])
     player_character.update(active: !player_character.active)
-    redirect_to player_character_path(player_character)
+    redirect_to campaign_player_character_path(campaign, player_character)
   end
 
   private
 
   def set_player_character
     @player_character = PlayerCharacter.find(params[:id])
-  end
-
-  def set_campaign
-    @campaign = Campaign.find(params[:campaign_id])
   end
 
   def player_character_params

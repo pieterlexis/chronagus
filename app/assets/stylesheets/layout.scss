@@ -4,15 +4,19 @@ body {
 }
 
 a {
-  color: $embers;
-
-  .card {
-    color: $ink;
-  }
+  color: inherit;
 
   &:hover {
     text-decoration: none;
   }
+}
+
+.navbar a {
+  color: $canvas;
+}
+
+p a {
+  color: $embers;
 }
 
 .label {

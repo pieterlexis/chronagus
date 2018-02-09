@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :player_characters, except: [:new]
-  resources :nonplayer_characters, except: [:new]
-  resources :log_entries, except: [:new]
-  resources :locations, except: [:new]
-  resources :campaigns_players
 
   resources :campaigns do
+    resources :campaigns_players
     resources :player_characters do
       put 'toggle_active', to: 'player_characters#toggle_active'
     end

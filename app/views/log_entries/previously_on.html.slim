@@ -1,6 +1,4 @@
 h1 = "Previously on #{@campaign.name}"
-= render 'shared/back_to', url: campaign_path(@campaign), name: @campaign.name
-
 - @log_entries.each do |log_entry|
   .row.mb-3
     .col-md-3

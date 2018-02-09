@@ -3,7 +3,6 @@
     h1 = 'Log entries'
   .col-md-4
     .float-right
-      = render 'shared/back_to', url: campaign_path(@campaign), name: @campaign.name
       = link_to '+', new_campaign_log_entry_path(@campaign), class: 'btn btn-success'
 
 = render @log_entries

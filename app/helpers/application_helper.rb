@@ -17,7 +17,9 @@ module ApplicationHelper
     return unless object.persisted?
     return unless policy(object).destroy?
 
-    link_to 'Delete', object, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
+    subject = object.respond_to?(:campaign) ? [object.campaign, object] : object
+
+    link_to 'Delete', subject, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
   end
 
   def edit_link_for(object, text = nil, classes = nil)
@@ -27,7 +29,12 @@ module ApplicationHelper
     button_text = text || "Edit #{object.model_name.human.downcase}"
     button_classes = ['btn btn-info', classes].join(' ')
 
+    path = if (object.respond_to?(:campaign))
+      polymorphic_path([:edit, object.campaign, object])
+    else
+      polymorphic_path([:edit, object])
+    end
 
-    link_to button_text, polymorphic_path([:edit, object]), class: button_classes
+    link_to button_text, path, class: button_classes
   end
 end
