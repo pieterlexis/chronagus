@@ -1,6 +1,5 @@
 class NonplayerCharactersController < ApplicationController
   before_action :set_nonplayer_character, only: [:show, :edit, :update, :destroy]
-  before_action :set_campaign, only: [:index ,:new]
 
   def index
     authorize @campaign, :show?
@@ -23,7 +22,7 @@ class NonplayerCharactersController < ApplicationController
     authorize @nonplayer_character
 
     if @nonplayer_character.save
-      redirect_to nonplayer_character_path(@nonplayer_character)
+      redirect_to campaign_nonplayer_character_path(@campaign, @nonplayer_character)
     else
       render :new
     end
@@ -37,7 +36,7 @@ class NonplayerCharactersController < ApplicationController
     authorize @nonplayer_character
 
     if @nonplayer_character.update(nonplayer_character_params)
-      redirect_to nonplayer_character_path(@nonplayer_character)
+      redirect_to campaign_nonplayer_character_path(@campaign, @nonplayer_character)
     else
       render :edit
     end
@@ -47,17 +46,13 @@ class NonplayerCharactersController < ApplicationController
     authorize @nonplayer_character
 
     @nonplayer_character.destroy
-    redirect_to campaign_nonplayer_characters_path(@nonplayer_character.campaign)
+    redirect_to campaign_nonplayer_characters_path(@campaign)
   end
 
   private
 
   def set_nonplayer_character
     @nonplayer_character = NonplayerCharacter.find(params[:id])
-  end
-
-  def set_campaign
-    @campaign = Campaign.find(params[:campaign_id])
   end
 
   def nonplayer_character_params

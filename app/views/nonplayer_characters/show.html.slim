@@ -5,10 +5,8 @@
       = image_tag @nonplayer_character.avatar_url(:small), class: 'avatar mb-3'
       h2.text-center.mb-3 = @nonplayer_character.name
 
-
       = edit_link_for(@nonplayer_character, nil, 'w-100 mb-2')
-      = render 'shared/back_to', url: campaign_path(@nonplayer_character.campaign), name: @nonplayer_character.campaign.name
-      = render 'shared/back_to', url: nonplayer_characters_path(campaign_id: @nonplayer_character.campaign.id), name: 'NPCs'
+      = render 'shared/back_to', url: campaign_nonplayer_characters_path(@campaign), name: 'NPCs'
 
   .col-md-9
     = sanitize @nonplayer_character.public_description

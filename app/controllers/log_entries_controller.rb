@@ -1,6 +1,5 @@
 class LogEntriesController < ApplicationController
   before_action :set_log_entry, only: [:show, :edit, :update, :destroy]
-  before_action :set_campaign, only: [:index, :new, :previously_on]
 
   def index
     authorize @campaign, :show?
@@ -30,7 +29,7 @@ class LogEntriesController < ApplicationController
     authorize @log_entry
 
     if @log_entry.save
-      redirect_to log_entry_path(@log_entry)
+      redirect_to campaign_log_entry_path(@campaign, @log_entry)
     else
       render :new
     end
@@ -44,7 +43,7 @@ class LogEntriesController < ApplicationController
     authorize @log_entry
 
     if @log_entry.update(log_entry_params)
-      redirect_to log_entry_path(@log_entry)
+      redirect_to campaign_log_entry_path(@campaign, @log_entry)
     else
       render :edit
     end
@@ -54,17 +53,13 @@ class LogEntriesController < ApplicationController
     authorize @log_entry
 
     @log_entry.destroy
-    redirect_to campaign_log_entries_path(@log_entry.campaign)
+    redirect_to campaign_log_entries_path(@campaign)
   end
 
   private
 
   def set_log_entry
     @log_entry = LogEntry.find(params[:id])
-  end
-
-  def set_campaign
-    @campaign = Campaign.find(params[:campaign_id])
   end
 
   def log_entry_params

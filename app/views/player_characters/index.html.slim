@@ -4,8 +4,6 @@
   .col-md-4
     .float-right.ml-2
       = link_to '+', new_campaign_player_character_path(@campaign), class: 'btn btn-success'
-    .float-right
-      = render 'shared/back_to', url: campaign_path(@campaign), name: @campaign.name
 
 .row.mb-3
   - @player_characters.each do |character|

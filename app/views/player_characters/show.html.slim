@@ -8,11 +8,9 @@
     = edit_link_for(@player_character, nil, 'w-100 mb-2')
 
     - if @player_character.active
-      = link_to 'Hide from campaign', campaign_player_character_toggle_active_path(@player_character.campaign, @player_character), method: :put, class: 'btn btn-danger w-100 mb-2'
+      = link_to 'Hide from campaign', campaign_player_character_toggle_active_path(@campaign, @player_character), method: :put, class: 'btn btn-danger w-100 mb-2'
     - else
-      = link_to 'Show on campaign', campaign_player_character_toggle_active_path(@player_character.campaign, @player_character), method: :put, class: 'btn btn-success w-100 mb-2'
-
-    = render 'shared/back_to', url: campaign_path(@player_character.campaign), name: @player_character.campaign.name
+      = link_to 'Show on campaign', campaign_player_character_toggle_active_path(@campaign, @player_character), method: :put, class: 'btn btn-success w-100 mb-2'
 
   .col-md-9
     = sanitize @player_character.public_description
