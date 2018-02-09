@@ -52,7 +52,7 @@ class PlayerCharactersController < ApplicationController
     authorize @campaign, :show?
     player_character = PlayerCharacter.find(params[:player_character_id])
     player_character.update(active: !player_character.active)
-    redirect_to campaign_player_character_path(campaign, player_character)
+    redirect_to campaign_player_character_path(@campaign, player_character)
   end
 
   private
