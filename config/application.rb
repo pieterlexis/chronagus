@@ -18,7 +18,7 @@ module Chronagus
     config.action_view.sanitized_allowed_tags = [
       'p', 'h2', 'h3', 'h4', 'span', 'br', 'div',
       'i', 'em', 'strong', 'b', 'strike', 'del', 's', 'u', 'a',
-      'ul', 'ol',
+      'ul', 'ol', 'li',
       'img',
     ]
     config.action_view.sanitized_allowed_attributes = [
