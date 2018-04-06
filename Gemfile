@@ -19,6 +19,7 @@ gem 'summernote-rails'
 gem 'shrine'
 gem 'image_processing'
 gem 'mini_magick'
+gem 'mime-types'
 
 group :development, :test do
   gem 'pry-byebug'

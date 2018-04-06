@@ -6,6 +6,7 @@ class AvatarUploader < Shrine
   plugin :versions
   plugin :remove_attachment
   plugin :default_url
+  plugin :determine_mime_type, analyzer: :mime_types
 
   Attacher.default_url do |options|
     ActionController::Base.helpers.image_path('default_avatar_small.png')
